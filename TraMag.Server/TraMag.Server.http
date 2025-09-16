@@ -1,0 +1,6 @@
+@TraMag.Server_HostAddress = http://localhost:5118
+
+GET {{TraMag.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

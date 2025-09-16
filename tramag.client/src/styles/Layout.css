@@ -1,0 +1,55 @@
+.layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.layout-content {
+    flex: 1;
+    overflow: auto;
+    position: relative;
+}
+
+.p-menubar .p-menubar-root-list {
+    margin-left: auto !important;
+}
+
+.p-menubar {
+    margin: 0 0 5px 0 !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+    font-size: 1rem !important;
+    padding: 4px 0px;
+    color: black !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+}
+
+.layout-footer {
+    text-align: center;
+    padding: 1rem;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+
+}
+/*ICONOS MENUBAR*/
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/*HOME*/
+.home-container {
+    background-size: cover;
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    align-content:center;
+    justify-content:center;
+    display: flex;
+    overflow: hidden;
+}

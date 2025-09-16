@@ -1,0 +1,360 @@
+#root {
+    margin: 0;
+    padding: 0 !important;
+    font-size: 0.9rem;
+    width: 100%;
+    height: 100%;
+}
+
+html, body {
+    margin: 0;
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+}
+
+.panel {
+    background-color: var(--gray-1) !important;
+    padding: 0.5rem 2rem;
+    border-radius: 10px;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 3rem;
+}
+
+.page-modal {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1rem 0em;
+    gap: 0.5rem;
+}
+
+.content-modal {
+    flex: 1;
+    overflow: auto;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: black !important;
+}
+
+.text {
+    font-weight: 500;
+    color: black !important;
+}
+
+.modal-btn {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+    .modal-btn .p-button {
+        width: 6.5rem !important; /* fuerza un ancho fijo */
+        height: 1.8rem !important; /* opcional: igual altura */
+        padding: 0 !important; /* respeta solo el width/height */
+        line-height: 2.5rem !important;
+    }
+
+/*---------DROPDOWNS---------*/
+.p-dropdown-items .p-dropdown-item {
+    font-size: 0.9rem;
+}
+
+.dropdown-bloqueado {
+    background-color: white !important;
+    color: white !important;
+    border: 2px solid var(--lgray) !important;
+    opacity: 1 !important;
+}
+
+    .dropdown-bloqueado .p-dropdown-label {
+        color: white !important;
+    }
+
+.p-dropdown-items .p-dropdown-item {
+    white-space: normal !important; 
+    line-height: 1.4;
+    word-break: break-word !important;
+}
+
+.p-dropdown .p-dropdown-panel {
+    max-height: 260px;
+    overflow-y: hidden;
+}
+/*---------------------------LABEL---------------------------*/
+label {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--gray-4);
+}
+
+.label-bloqueado {
+    color: var(--lgray-2);
+}
+/*---------------------------INPUT---------------------------*/
+.p-inputtext {
+    font-size: 0.9rem;
+}
+
+.p-inputnumber-input {
+    width: 100px;
+}
+
+
+/*---------BOTONES---------*/
+.p-button {
+    font-size: 0.9rem;
+    box-shadow: none;
+    color: white !important;
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.btn-success {
+    background-color: var(--violet) !important;
+    color: white !important;
+    border: 2px solid var(--violet) !important;
+}
+
+.p-button.btn-success:hover {
+    background-color: var(--violet-dark) !important;
+    border-color: var(--violet-dark) !important;
+}
+
+.btn-save {
+    background-color: var(--green) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 5px;
+}
+
+.p-button.btn-save:hover {
+    background-color: var(--green-2) !important;
+}
+
+.btn-cerrar {
+    background-color: var(--red) !important;
+    color: white !important;
+    border: none !important;
+}
+
+.p-button.btn-cerrar:hover {
+    background-color: var(--red-1) !important;
+}
+
+.btn-cancel {
+    background-color: var( --orange-1) !important;
+    color: white !important;
+    border: none !important;
+}
+
+.p-button.btn-cancel:hover {
+    background-color: var(--orange-dark) !important;
+}
+
+.p-datepicker-trigger,
+.p-inputnumber-button {
+    background-color: var(--violet) !important;
+    border-color: var(--violet) !important;
+}
+
+    .p-datepicker-trigger:hover,
+    .p-inputnumber-button:hover {
+        background-color: var(--violet-dark) !important;
+        border-color: var(--violet-dark) !important;
+    }
+
+.btn-edit {
+    background-color: var(--violet) !important;
+    border-color: var(--violet) !important;
+    color: #fff !important;
+    border-radius: 50% !important;
+}
+
+.p-button.btn-edit:hover {
+    background-color: var(--violet-dark) !important;
+}
+
+.btn-delete {
+    background-color: white !important;
+    border-color: white !important;
+    color: var( --red) !important;
+    border-radius: 50% !important;
+}
+
+    .btn-delete:hover {
+        background-color: var(--lred) !important;
+        border-color: var(--lred) !important;
+    }
+/*--------- FILTROS---------*/
+.filter-container {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+.p-field {
+    align-items: center;
+}
+
+    .p-field .p-inputtext,
+    .p-field .p-inputnumber,
+    .p-field .p-calendar {
+        align-items: center;
+    }
+
+/*---------TABLA---------*/
+.fila-produccion {
+    background-color: #d4edda !important; /* verde claro */
+    color: #155724; /* texto verde oscuro */
+    font-weight: 500;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+    border: 0.2px solid var(--gray-3);
+    font-size: 0.8rem !important;
+    color: #333;
+}
+/* Esquina superior izquierda del encabezado */
+.p-datatable .p-datatable-thead > tr > th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+    border: 0.2px solid var(--gray-3);
+}
+
+.tabla-container {
+    --datatable-border: var(--gray-2) !important;
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+}
+
+    .tabla-container .p-datatable {
+        border: 0.2px solid var(--gray-3) !important;
+        border-radius: 12px !important;
+        overflow: hidden;
+        table-layout: fixed !important;
+    }
+
+.p-datatable-table td.btn-col .p-button,
+.p-datatable-table th.btn-col .p-button {
+    width: 2rem !important;
+    height: 2rem !important;
+    padding: 0 !important;
+    line-height: 1.5rem !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th.p-sortable-column.p-sortable-column-active {
+    background-color: var(--primary) !important;
+    color: white !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th.p-highlight {
+    background-color: var(--gray-1) !important;
+}
+
+.p-datatable-tbody > tr > td {
+    padding: 10px 14px !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+    background-color: var( --gray-1);
+    padding: 14px 14px !important;
+}
+
+.p-datatable .p-sortable-column.p-highlight,
+.p-sortable-column-icon {
+    color: var(--violet);
+}
+
+.modal-produccion {
+    background-color: var(--gray-1) !important;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.row-nocancel {
+    background-color: #d4edda !important; /* verde claro */
+}
+
+    /* esconder checkbox de la columna de selección en las filas no cancelables */
+    .row-nocancel .p-selection-column .p-checkbox {
+        visibility: hidden;
+    }
+
+/* opcional: cursor no-permitido */
+.row-nocancel {
+    cursor: not-allowed;
+}
+
+.row-nocheck .p-selection-column .p-checkbox {
+    visibility: hidden;
+}
+
+/*---------------------CALENDAR---------------------------------*/
+.p-datepicker {
+    width: 19rem !important; /* ajusta a tu gusto: 18rem, 24rem, etc. */
+}
+
+.p-datepicker-calendar {
+    font-size: 0.75rem; /* texto un poco más pequeño */
+}
+
+    .p-datepicker-calendar td > span {
+        width: 1.5rem; /* ancho de cada día */
+        height: 1.5rem; /* alto de cada día */
+        line-height: 1.5rem; /* centra el número */
+    }
+
+.p-datepicker-group-container {
+    max-height: 21rem;
+    overflow: auto;
+}
+
+.p-datepicker-header {
+    height: 2rem;
+}
+/**----------------SWAL------------------------SWAL-------------------SWAL-------------------------SWAL-------------*/
+.swal2-styled.swal2-confirm {
+    border: 0 !important;
+    background: initial !important;
+    background-color: #80006A !important;
+    color: #fff !important;
+    font-size: 1em !important;
+    padding-left: 30px !important; /* Cambio de tamaño boton confirmar de la alerta */
+    padding-right: 30px !important;
+    border-radius: 0.8rem !important;
+    margin-right: 0.1rem !important;
+}
+
+    .swal2-styled.swal2-confirm:hover {
+        color: #ffffff !important;
+        box-shadow: 0 4px 16px rgba(128,0,106) !important;
+        transition: all 0.2s ease !important;
+    }
+
+/** Ajuste de texto en las alertas**/
+.swal2-html-container {
+    /*    text-align: left !important;
+*/
+}

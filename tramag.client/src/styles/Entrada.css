@@ -1,0 +1,52 @@
+/*Entrada*/
+/*Formulario de entrada grid*/
+.form-grid-entrada {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 2rem;
+}
+.div1 {
+    grid-column: span 4 / span 4;
+}
+
+.div2 {
+    grid-column: span 8 / span 8;
+    grid-column-start: 5;
+}
+
+.div3 {
+    grid-column: span 3 / span 3;
+    grid-row-start: 2;
+}
+
+.div4 {
+    grid-column: span 3 / span 3;
+    grid-column-start: 4;
+    grid-row-start: 2;
+}
+
+.div5 {
+    grid-column: span 3 / span 3;
+    grid-column-start: 7;
+    grid-row-start: 2;
+}
+
+.div6 {
+    grid-column: span 3 / span 3;
+    grid-column-start: 10;
+    grid-row-start: 2;
+}
+        
+
+/*Tabla*/
+.p-datatable-gridlines .p-datatable-table th.no-border-right,
+.p-datatable-gridlines .p-datatable-table td.no-border-right {
+    border-right: none !important;
+}
+
+.p-datatable-gridlines .p-datatable-table th.no-border-left,
+.p-datatable-gridlines .p-datatable-table td.no-border-left {
+    border-left: none !important;
+}
