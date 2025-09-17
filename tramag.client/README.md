@@ -9,10 +9,12 @@
  
    ├─ tramag.client/         # React + Vite
    │  ├─ src/
+   |  |  ├─ assets/          #Imágenes e iconos
    │  │  ├─ components/      # Modales y UI por módulo
    │  │  ├─ modules/         # Páginas: Home, Solicitudes, Producción, etc.
    │  │  ├─ services/        # Llamadas a API por dominio
    │  │  ├─ context/         # UserContext (sesión/usuario)
+   |  |  ├─ styles/          # CSS  
    │  │  └─ utils/           # helpers (Swal, impresión PDF)
    │  └─ package.json
    └─ tramag.Server/         # ASP.NET Core Web API
