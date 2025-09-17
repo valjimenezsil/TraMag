@@ -121,7 +121,7 @@ export default function RevisionModal({ visible, onHide, empresa, sede, servicio
 
     return (
         <Sidebar
-            header={`${orden?.TipoIde} ${orden?.Ide} - ${orden?.NombreCompleto} - ${orden?.Edad} a\u00F1os - HAB ${orden?.Hab} `}
+            header={`${orden?.TipoIde ?? ""} ${orden?.Ide ?? ""} - ${orden?.NombreCompleto ?? orden?.Hab} - ${orden?.Edad ?? 0} a\u00F1os - HAB ${orden?.Hab ?? ""} `}
             visible={visible}
             onHide={onHide}
             position="right"

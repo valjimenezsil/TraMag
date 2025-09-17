@@ -35,6 +35,7 @@ public class ServicioUrl
     #region Alistamiento
     public string InsertTraMagAli => $"{urlbase}Alistamiento/InsertAlistamiento";
     public string GetTraMagAliLog => $"{urlbase}Alistamiento/GetTraMagAliLog";
+    public string CancelTraMagAli => $"{urlbase}Alistamiento/CancelarAlistamiento";
     #endregion
 
     #region Solicitudes

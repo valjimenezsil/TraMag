@@ -657,8 +657,8 @@ public class Servicios
     }
 
     //OBTENER INFO DE ALISTAMIENTO DEL DIA 
-    public static async Task<DatosTraza> GetTraMagAliLog(string prepcod) { 
-    var tokenResult = await TokenTraza();
+    public static async Task<DatosTraza> GetTraMagAliLog(string prepcod) {
+        var tokenResult = await TokenTraza();
         if (tokenResult.status != "200")
         {
             return new DatosTraza
@@ -684,6 +684,31 @@ public class Servicios
 
         return JsonConvert.DeserializeObject<DatosTraza>(content)!;
     }
+
+    //CANCELAR ALISTAMIENTO
+    public static async Task<DatosTraza> CancelTraMagAli(CancelarAlistamiento payload)
+    {
+        var tokenResult = await TokenTraza();
+        if (tokenResult.status != "200")
+        {
+            return new DatosTraza
+            {
+                status = "401",
+                message = "Token inválido",
+                response = "Token invalido"
+            };
+        }
+        var url = new ServicioUrl().CancelTraMagAli;
+        var json = JsonConvert.SerializeObject(payload);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        using var client = new HttpClient();
+        client.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", tokenResult.response);
+        var response = await client.PostAsync(url, content);
+        var responseBody = await response.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<DatosTraza>(responseBody)!;
+    }
+
     #endregion
 
     #region Solicitudes

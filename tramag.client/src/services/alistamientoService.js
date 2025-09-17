@@ -3,7 +3,7 @@ const formatFechaSQL = (fecha) => {
     return `${fecha.getFullYear()}-${pad(fecha.getMonth() + 1)}-${pad(fecha.getDate())} ${pad(fecha.getHours())}:${pad(fecha.getMinutes())}:${pad(fecha.getSeconds())}`;
 };
 
-
+//payload que enviaré al post 
 export const buildAlistamientoPayload = (rows = [], user) => {
     const { tipoPrep } = rows[0];
     return {
@@ -20,11 +20,21 @@ export const buildAlistamientoPayload = (rows = [], user) => {
         }))
     };
 };
+export const buildCancelarPayload = (rows = [], tipPrep, user) => {
+    return {
+        prepCod: tipPrep,
+        usuMod: user.usuario,
+        ent: rows.map(r => ({
+            csc: r.Csc,
+            id: r.Id
+    }))
+};
+};
+
 
 //INSERTAR ENTRADA
 export const postEntrada = async (entrada, user) => {
     const payload = buildAlistamientoPayload(entrada, user);
-    console.log("entrada ya mapeada", payload)
     try {
         const response = await fetch(`/Alistamiento/InsertTraMagAli`, {
             method: 'POST',
@@ -64,8 +74,6 @@ export const fetchEntradas = async (prepcod) => {
         }
         const data = await res.json();
         const dataParse = JSON.parse(data.response)
-
-        console.error("dataParse", dataParse);
         if (!data.response) {
             throw new Error(`Respuesta inesperada del servidor: ${JSON.stringify(data)}`);
         }
@@ -83,5 +91,31 @@ export const fetchEntradas = async (prepcod) => {
         throw new Error(`No se pudo obtener las entradas del dia de hoy: ${error.message}`);
     }
 };
+
+//CANCELAR LA ENTRADA
+export const cancelarEntrada = async (entradas, tipPrep, user) => {
+    const payload = buildCancelarPayload(entradas, tipPrep, user);
+    try {
+        const response = await fetch(`/Alistamiento/CancelTraMagAli`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        });
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Respuesta detallada:', errorText);
+            throw new Error(`Error ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        console.log("data a canc", payload)
+        return data;
+
+    } catch (error) {
+        throw error;
+    }
+}
 
 

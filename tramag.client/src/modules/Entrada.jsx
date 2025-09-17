@@ -14,7 +14,7 @@ import { userData } from '../context/UserContext';
 import Swal from 'sweetalert2';
 import { withSwalLoading, swalMensaje, swalMissing } from '../utils/SwalUtils'
 import { fetchTiposPreparacion } from '../services/maestrosService';
-import { postEntrada, fetchEntradas } from '../services/alistamientoService';
+import { postEntrada, fetchEntradas, cancelarEntrada } from '../services/alistamientoService';
 
 
 const Entrada = () => {
@@ -156,7 +156,7 @@ const Entrada = () => {
                 return;
             }
             withSwalLoading('Guardando...');
-            const resp = postEntrada(elementos, user);            
+            const resp = postEntrada(elementos, user);
             swalMensaje('success', 'Entradas enviadas');
         } catch (err) {
             swalMensaje('error', err.message || 'No se pudo guardar');
@@ -196,7 +196,17 @@ const Entrada = () => {
     };
 
     const handleCancelarSeleccion = async () => {
-        console.log("data a cancelar", seleccionConsulta)
+        console.log("data a cancelar", seleccionConsulta, form.tipoPrep, user)
+        try {
+            if (!seleccionConsulta || seleccionConsulta.length === 0) {
+                swalMensaje('warning', 'No hay entradas para cancelar');
+                return;
+            }
+            await cancelarEntrada(seleccionConsulta, form.tipoPrep, user)
+            handleSearch();
+        } catch (err) {
+            swalMensaje('error', err.message || 'No se pudo cancelar');
+        }
     }
 
     // Maneja la eliminación de filas
@@ -209,7 +219,7 @@ const Entrada = () => {
         const updatedRow = e.newData;
         setElementos(prev => prev.map(item => item.id === updatedRow.id ? updatedRow : item));
     };
-
+    // Maneja la edición de filas numericas
     const numberEditor = (options) => (
         <InputNumber
             value={options.value}
@@ -319,7 +329,7 @@ const Entrada = () => {
                         style={{ width: '560px' }} />
                     <Column field="Lote" header="Lote" style={{ width: '120px' }} />
                     <Column field="CantSol" header="Catidad" style={{ width: '120px' }} />
-                    <Column field="FechVenc" header="F. de vencimiento" style={{ width: '180px' }} />
+                    <Column field="FechVenc" header="Vencimiento" style={{ width: '160px' }} />
                     <Column field="RegInvima" header="Registro INVIMA" style={{ width: '180px' }} />
                 </DataTable>
                 {/*Boton cancelar */}
@@ -337,7 +347,6 @@ const Entrada = () => {
 
     return (
         <div className="page">
-
             <ProductModal
                 visible={showProductModal}
                 onHide={() => setShowProductModal(false)}
@@ -381,7 +390,7 @@ const Entrada = () => {
                                         <label>Tipo de Preparaci&oacute;n </label>
                                     </FloatLabel>
                                 </div>
-
+                                {/*Producto*/}
                                 <div className="p-field p-inputgroup div2" >
                                     <InputText
                                         ref={productoRef}
@@ -406,8 +415,7 @@ const Entrada = () => {
                                         disabled={vista === 'consulta'}
                                     />
                                 </div>
-
-
+                                {/*Lote*/}
                                 <div className="p-field div3">
                                     <FloatLabel>
                                         <InputText
@@ -420,8 +428,7 @@ const Entrada = () => {
                                         <label htmlFor="lote">Lote</label>
                                     </FloatLabel>
                                 </div>
-
-
+                                {/*Fecha de Vencimiento*/}
                                 <div className="p-field div4" >
                                     <FloatLabel>
                                         <Calendar
@@ -437,7 +444,7 @@ const Entrada = () => {
                                         <label htmlFor="fv">Fecha de vencimiento</label>
                                     </FloatLabel>
                                 </div>
-
+                                {/*Registro Invima*/}
                                 <div className="p-field div5" >
                                     <FloatLabel>
                                         <InputText
@@ -450,7 +457,7 @@ const Entrada = () => {
                                         <label htmlFor="reg">Registro INVIMA</label>
                                     </FloatLabel>
                                 </div>
-
+                                {/*Cantidad*/}
                                 <div className="p-field div6" >
                                     <FloatLabel>
                                         <InputNumber
@@ -476,6 +483,7 @@ const Entrada = () => {
                     </div>
 
                 </div>
+                {/*Tabla*/}
                 {vista === 'nuevo' ? renderTabla() : renderTablaConsulta()}
             </div>
         </div>

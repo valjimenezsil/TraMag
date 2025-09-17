@@ -6,7 +6,6 @@ const formatFechaSQL = (fecha) => {
     return `${fecha.getFullYear()}-${pad(fecha.getMonth() + 1)}-${pad(fecha.getDate())} ${pad(fecha.getHours())}:${pad(fecha.getMinutes())}:${pad(fecha.getSeconds())}`;
 };
 
-
 //ORDENES DE PRODUCCION
 export const fetchOrdenesProduccion = async (empresa, sede, servicio) => {
     if (!empresa || !sede || !servicio) {
@@ -32,8 +31,6 @@ export const fetchOrdenesProduccion = async (empresa, sede, servicio) => {
         console.error("Error en fetchOrdenesProduccion:", error);
         throw new Error(`No se pudo obtener Ordenes de produccion: ${error.message}`);
     }
-
-
 };
 
 //INSERTAR DATOS DE ETIQUETA NUEVA

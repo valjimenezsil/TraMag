@@ -134,6 +134,12 @@ const ReporteOrdenDeProd = () => {
     const handleClear = async () => {
         setLista([]);
         setServicios([]);
+        setForm(f => ({
+            ...f,
+            empresa: user.empresa,
+            sede: user.sede
+
+        }));
     }
 
     //TABLA
@@ -245,7 +251,7 @@ const ReporteOrdenDeProd = () => {
                                         dateFormat="yy-mm-dd"
                                         value={form.fecha}
                                         appendTo={typeof window !== 'undefined' ? document.body : null}
-                                        onChange={e => setForm(f => ({ ...f, fecha: e.value }))} dateFormat="yy/mm/dd" />
+                                        onChange={e => setForm(f => ({ ...f, fecha: e.value }))} />
                                     <label>Fecha</label>
                                 </FloatLabel>
                             </div>

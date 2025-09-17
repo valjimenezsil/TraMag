@@ -92,6 +92,44 @@ namespace TraMag.Server.Controllers
                 });
             }
         }
+
+        [HttpPost]
+        [Route("CancelTraMagAli")]
+        public async Task<IActionResult> CancelTraMagAli([FromBody] CancelarAlistamiento payload)
+        {
+            try
+            {
+                var result = await Servicios.CancelTraMagAli(payload);
+                if (result.status != "200")
+                {
+                    return StatusCode(StatusCodes.Status401Unauthorized, new
+                    {
+                        status = 401,
+                        message = "No se pudo cancelar el alistamiento en WsTraza",
+                        response = result.response
+                    });
+                }
+                return StatusCode(StatusCodes.Status200OK, new
+                {
+                    status = 200,
+                    message = "Alistamiento cancelado con éxito",
+                    response = result.response
+                });
+            }
+            catch (Exception ex)
+            {
+                var msg = Auxiliar.MensajeError(ex).Replace("'", "");
+                Auxiliar msgerror = new Auxiliar();
+                _logger.LogError("Se ha presentado un error en la cancelación del alistamiento: {error}", msg);
+
+                return StatusCode(500, new
+                {
+                    status = 500,
+                    message = msg,
+                    response = ""
+                });
+            }
+        }
     }
 }
 

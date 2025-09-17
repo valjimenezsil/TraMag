@@ -236,6 +236,12 @@ export default defineConfig({
                 changeOrigin: true,
                 logLevel: 'debug',
             },
+            '^/Alistamiento/CancelTraMagAli': {
+                target,
+                secure: false,
+                changeOrigin: true,
+                logLevel: 'debug',
+            },
             //Revision
             '^/Revision/GetTraMagRev': {
                 target,

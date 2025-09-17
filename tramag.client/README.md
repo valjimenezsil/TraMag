@@ -1,12 +1,23 @@
-# React + Vite
+﻿# Trazabilidad Magistral
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- **Frontend**: React + Vite (JavaScript) — `/tramag.client`
+- **Backend**: ASP.NET Core 8 (Web API) — `/tramag.Server Después se conecta a WsTraza`
+- **Node.js** v18+ y npm
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Estructura principal
+ 
+   ├─ tramag.client/         # React + Vite
+   │  ├─ src/
+   │  │  ├─ components/      # Modales y UI por módulo
+   │  │  ├─ modules/         # Páginas: Home, Solicitudes, Producción, etc.
+   │  │  ├─ services/        # Llamadas a API por dominio
+   │  │  ├─ context/         # UserContext (sesión/usuario)
+   │  │  └─ utils/           # helpers (Swal, impresión PDF)
+   │  └─ package.json
+   └─ tramag.Server/         # ASP.NET Core Web API
+      ├─ Controllers/        # Endpoints por etapa
+      ├─ Models/             # DTOs de entrada/salida
+      ├─ Class/              # Auxiliar, Servicios (HTTP client, URLs, session)
+      ├─ Program.cs          # Registro de servicios / Serilog
+      └─ appsettings.json
