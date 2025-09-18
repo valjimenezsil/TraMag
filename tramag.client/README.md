@@ -1,6 +1,6 @@
 ﻿# Trazabilidad Magistral
 
-- **Frontend**: React + Vite (JavaScript) — `/tramag.client`
+- **Frontend**: React (PrimeReact) + Vite (JavaScript) — `/tramag.client`
 - **Backend**: ASP.NET Core 8 (Web API) — `/tramag.Server Después se conecta a WsTraza`
 - **Node.js** v18+ y npm
 
