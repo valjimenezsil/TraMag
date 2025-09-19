@@ -4,7 +4,8 @@
 - **Backend**: ASP.NET Core 8 (Web API) — `/tramag.Server Después se conecta a WsTraza`
 - **Node.js** v18+ y npm
 
-
+## Github
+  -https://github.com/valjimenezsil/TraMag.git
 ## Estructura principal
  
    ├─ tramag.client/         # React + Vite
